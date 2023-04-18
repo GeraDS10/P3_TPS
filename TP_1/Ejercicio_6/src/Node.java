@@ -1,4 +1,4 @@
-public class Node <T>{
+public abstract class Node <T> {
     private T info;
     private Node<T> next;
 
@@ -21,7 +21,6 @@ public class Node <T>{
         return this.next;
     }
 
-
     public T getInfo(){
         return info;
     }
@@ -37,4 +36,6 @@ public class Node <T>{
                 ", next=" + next +
                 '}';
     }
+
+    public abstract boolean esMayor(Node<T> otro);
 }

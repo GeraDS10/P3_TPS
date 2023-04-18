@@ -21,7 +21,6 @@ public class Node <T>{
         return this.next;
     }
 
-
     public T getInfo(){
         return info;
     }

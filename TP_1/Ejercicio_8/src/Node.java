@@ -1,6 +1,7 @@
-public class Node <T>{
+public class Node<T>{
     private T info;
     private Node<T> next;
+    private Node<T> previous;
 
 
     public Node(){
@@ -21,6 +22,13 @@ public class Node <T>{
         return this.next;
     }
 
+    public void setPrevious(Node<T> nodo){
+        this.previous = nodo;
+    }
+
+    public Node<T> getPrevious(){
+        return this.previous;
+    }
 
     public T getInfo(){
         return info;
