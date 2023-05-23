@@ -22,15 +22,15 @@ public class Arco<T> {
     }
 
     public int getVerticeOrigen() {
-        return origen;
+        return this.origen;
     }
 
     public int getVerticeDestino() {
-        return destino;
+        return this.destino;
     }
 
     public T getEtiqueta() {
-        return etiqueta;
+        return this.etiqueta;
     }
 
 }
