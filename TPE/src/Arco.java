@@ -9,21 +9,11 @@ public class Arco<T> {
         this.etiqueta = etiqueta;
     }
 
-    public void setOrigen(int origen) {
-        this.origen = origen;
-    }
-
-    public void setDestino(int destino) {
-        this.destino = destino;
-    }
-
-    public void setEtiqueta(T etiqueta) {
-        this.etiqueta = etiqueta;
-    }
-
     public int getVerticeOrigen() {
         return this.origen;
     }
+
+
 
     public int getVerticeDestino() {
         return this.destino;
@@ -33,4 +23,12 @@ public class Arco<T> {
         return this.etiqueta;
     }
 
+    @Override
+    public String toString() {
+        return "Arco{" +
+                "origen=" + origen +
+                ", destino=" + destino +
+                ", etiqueta=" + etiqueta +
+                '}';
+    }
 }

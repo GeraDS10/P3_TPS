@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ServicioCaminos {
@@ -28,8 +29,9 @@ public class ServicioCaminos {
         if (verticeActual == destino) {
             caminos.add(new ArrayList<>(caminoActual));
         } else if (caminoActual.size() <= this.lim) {
-            List<Integer> adyacentes = grafo.obtenerAdyacentes(verticeActual);
-            for (int adyacente : adyacentes) {
+            Iterator<Integer> adyacentesIterator = grafo.obtenerAdyacentes(verticeActual);
+            while (adyacentesIterator.hasNext()) {
+                int adyacente = adyacentesIterator.next();
                 Arco<String> arco = new Arco<>(verticeActual, adyacente, null);
                 if (!existeArcoEnCamino(arco, caminoActual)) {
                     caminoActual.add(adyacente);
