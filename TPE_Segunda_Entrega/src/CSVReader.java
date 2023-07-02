@@ -3,6 +3,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class CSVReader {
@@ -19,16 +21,23 @@ public class CSVReader {
         // lines.get(0) tiene la primer linea del archivo
         // lines.get(1) tiene la segunda linea del archivo... y así
         ArrayList<String[]> lines = this.readContent();
+        
+        List<Arco<Integer>> arcos = new LinkedList<>();
 
         for (String[] line: lines) {
             // Cada linea es un arreglo de Strings, donde cada posicion guarda un elemento
             Integer origen = Integer.parseInt(line[0].trim().substring(1));
             Integer destino = Integer.parseInt(line[1].trim().substring(1));
             Integer etiqueta = Integer.parseInt(line[2].trim());
-
+            arcos.add(new Arco<>(origen, destino, etiqueta));
             // Aca instanciar lo que necesiten en base a los datos leidos
         }
 
+        Backtracking backtracking = new Backtracking(arcos);
+        backtracking.encontrarRedSubterraneos();
+
+        Greedy greedy = new Greedy<>(arcos);
+        greedy.construirRedSubterraneos();
     }
 
     private ArrayList<String[]> readContent() {
@@ -54,7 +63,6 @@ public class CSVReader {
                     e1.printStackTrace();
                 }
         }
-
         return lines;
     }
 
